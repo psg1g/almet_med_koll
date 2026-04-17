@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Альметьевский медицинский колледж | Официальный сайт</title>
+    <meta name="description"
+        content="Альметьевский медицинский колледж — обучение медицинских специалистов, поступление, расписание, новости.">
+    <meta name="keywords" content="медицинский колледж, Альметьевск, абитуриент, студент">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="img/logo.jpg">
+                <span>Альметьевский медицинский колледж</span>
+            </div>
+
+            <nav id="navMenu">
+                <a href="#home">Главная</a>
+                <a href="#features">Абитуриенту</a>
+                <a href="#features">Студенту</a>
+                <a href="#about">Новости</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+
+            <button id="burger">☰</button>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="overlay">
+            <div class="container hero-content">
+                <h2>Альметьевский медицинский колледж</h2>
+                <p>Подготовка специалистов в сфере здравоохранения</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Разделы -->
+    <section id="features" class="features container">
+        <div class="card">
+            <h3>Абитуриенту</h3>
+            <p>Правила поступления, документы</p>
+        </div>
+        <div class="card">
+            <h3>Студенту</h3>
+            <p>Расписание и учебные материалы</p>
+        </div>
+        <div class="card">
+            <h3>О колледже</h3>
+            <p>История и администрация</p>
+        </div>
+    </section>
+
+    <!-- Новости -->
+    <section id="about" class="news container">
+        <h2>Новости</h2>
+
+        <input type="text" id="search" placeholder="Поиск новостей...">
+
+        <div class="news-item">
+            <img src="img/news1.png">
+            <div>
+                <h4>День открытых дверей</h4>
+                <p>Приглашаем абитуриентов познакомиться с колледжем.</p>
+            </div>
+        </div>
+
+        <div class="news-item">
+            <img src="img/news2.jpg">
+            <div>
+                <h4>Практика студентов</h4>
+                <p>Студенты проходят практику в больницах.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contacts" class="contacts container">
+        <h2>Контакты</h2>
+        <p>г. Альметьевск</p>
+        <p>Телефон: +7 (8553) 26-11-31</p>
+        <p>email: 1) mz.almetievsk_meduch@tatar.ru 2) Med.Almetevsk@tatar.ru
+</p>
+
+        <form class="form">
+            <input type="text" placeholder="Имя" required>
+            <input type="tel" placeholder="Телефон" required>
+            <textarea placeholder="Сообщение"></textarea>
+            <button type="submit">Отправить</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2026 ГАПОУ «Альметьевский медицинский колледж»</p>
+    </footer>
+
+    <button id="topBtn">↑</button>
+
+    <script>
+        /* Бургер */
+        const burger = document.getElementById("burger");
+        const nav = document.getElementById("navMenu");
+
+        burger.onclick = () => nav.classList.toggle("open");
+
+        /* Кнопка вверх */
+        const btn = document.getElementById("topBtn");
+
+        window.onscroll = () => {
+            btn.style.display = window.scrollY > 300 ? "block" : "none";
+        };
+
+        btn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
+        /* Поиск */
+        const search = document.getElementById("search");
+
+        search.addEventListener("input", function () {
+            let value = this.value.toLowerCase();
+            let items = document.querySelectorAll(".news-item");
+
+            items.forEach(item => {
+                item.style.display = item.innerText.toLowerCase().includes(value)
+                    ? "flex"
+                    : "none";
+            });
+        });
+    </script>
+
+</body>
+
+</html>
